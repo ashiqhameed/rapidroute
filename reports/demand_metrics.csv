@@ -1,0 +1,5 @@
+,MAE,RMSE,R2,R2_citywide,R2_share_of_ceiling
+Historical mean (baseline),0.784,1.06,0.3148,0.7152,0.857
+"Linear regression (GD, scratch)",0.7887,1.0588,0.3164,0.72,0.862
+Decision tree,0.787,1.064,0.3097,0.7146,0.843
+Gradient boosting (Poisson),0.7835,1.0576,0.3179,0.7317,0.866

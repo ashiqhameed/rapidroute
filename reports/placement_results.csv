@@ -1,0 +1,6 @@
+strategy,mean_travel_min,coverage_8min_pct
+Random (mean of 20),10.336,43.191
+Uniform grid,7.512,62.185
+K-means (plain),7.457,55.797
+K-means (demand),6.933,65.007
+K-means (risk-weighted),6.987,63.859

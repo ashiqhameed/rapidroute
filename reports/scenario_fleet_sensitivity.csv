@@ -1,0 +1,13 @@
+scenario,fleet,mean_rt_min,median_rt_min,p90_rt_min,pct_within_8,pct_critical_within_8,median_travel_min,pct_waited
+A · Static baseline,100,34.443,9.52,64.086,33.458,34.625,8.798,29.265
+B · + K-means depots,100,36.486,10.025,67.476,33.23,33.862,9.277,30.174
+C · + ML demand depots & ML routing,100,23.622,8.709,42.338,44.327,44.595,8.179,21.901
+D · RapidRoute (+ Q-learning),100,23.712,8.818,42.828,43.588,45.061,8.249,22.13
+A · Static baseline,110,11.347,8.155,15.19,46.859,47.685,7.786,5.644
+B · + K-means depots,110,11.346,8.284,13.896,46.681,46.265,7.895,6.042
+C · + ML demand depots & ML routing,110,8.962,7.391,12.148,56.778,56.71,7.032,2.751
+D · RapidRoute (+ Q-learning),110,9.281,7.521,12.942,55.426,56.71,7.157,3.68
+A · Static baseline,120,8.18,7.946,13.077,51.08,52.052,7.593,0.0
+B · + K-means depots,120,8.022,7.882,11.438,51.378,51.034,7.537,0.0
+C · + ML demand depots & ML routing,120,7.459,7.147,11.115,60.383,60.471,6.793,0.0
+D · RapidRoute (+ Q-learning),120,7.523,7.186,11.197,59.576,60.89,6.836,0.0

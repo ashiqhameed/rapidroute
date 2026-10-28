@@ -1,0 +1,9 @@
+placement,routing,mean_rt_min,median_rt_min,p90_rt_min,pct_within_8,pct_critical_within_8,median_travel_min,pct_waited
+Uniform grid,distance,11.347,8.155,15.19,46.859,47.685,7.786,5.644
+Uniform grid,ml,9.848,8.084,14.437,48.408,49.216,7.718,3.686
+K-means (plain),distance,11.346,8.284,13.896,46.681,46.265,7.895,6.042
+K-means (plain),ml,9.867,8.154,12.386,47.985,47.444,7.769,4.015
+K-means (demand),distance,10.156,7.592,13.463,55.076,54.981,7.201,4.645
+K-means (demand),ml,8.962,7.391,12.148,56.778,56.71,7.032,2.751
+K-means (risk-weighted),distance,10.774,7.634,14.022,52.348,52.179,7.242,5.531
+K-means (risk-weighted),ml,8.967,7.414,12.099,54.087,54.04,7.041,2.646

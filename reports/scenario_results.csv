@@ -1,0 +1,5 @@
+,mean_rt_min,median_rt_min,p90_rt_min,pct_within_8,pct_critical_within_8,median_travel_min,pct_waited
+A · Static baseline,11.347,8.155,15.19,46.859,47.685,7.786,5.644
+B · + K-means depots,11.346,8.284,13.896,46.681,46.265,7.895,6.042
+C · + ML demand depots & ML routing,8.962,7.391,12.148,56.778,56.71,7.032,2.751
+D · RapidRoute (+ Q-learning),9.281,7.521,12.942,55.426,56.71,7.157,3.68

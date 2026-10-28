@@ -1,0 +1,4 @@
+set,incidents,valid_rt,median_response_min,median_travel_min,pct_within_8min,pct_critical
+All,390951,340871,8.9,7.7,43.3,37.5
+Train (Jan–Oct),327145,284788,8.87,7.67,43.5,37.6
+Test (Nov–Dec),63806,56083,8.98,7.9,42.4,37.0

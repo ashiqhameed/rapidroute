@@ -1,0 +1,23 @@
+place: "Manhattan, New York, USA"
+borough: "MANHATTAN"
+year: 2024
+train_months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+test_months: [11, 12]
+response_target_seconds: 480
+k_range: [4, 15]
+k_depots: 8
+fleet_candidates: [60, 70, 80, 90, 100, 105, 110, 115, 120]
+fleet_sensitivity: [100, 110, 120]
+seed: 42
+paths:
+  ems_raw: "data/raw/ems_manhattan_2024.csv"
+  zcta_raw: "data/raw/2024_Gaz_zcta_national.txt"
+  graph_raw: "data/raw/manhattan_drive.graphml"
+  processed: "data/processed"
+  figures: "reports/figures"
+rl:
+  alpha: [0.05, 0.1, 0.3]
+  gamma: [0.8, 0.9, 0.99]
+  epsilon_decay: [0.99, 0.995, 0.999]
+  episodes: 800
+  default: {alpha: 0.1, gamma: 0.9, epsilon_decay: 0.995}

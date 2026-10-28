@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RapidRoute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="var(--siren)"/>
+        <path d="M13 6h6v7h7v6h-7v7h-6v-7H6v-6h7z" fill="#fff"/>
+      </svg>
+      <div>
+        <h1>RapidRoute</h1>
+        <p>Ambulance placement and shortest-path dispatch for Manhattan</p>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="demo">Live dispatch</button>
+      <button class="tab" data-tab="results">Results</button>
+      <button class="tab" data-tab="models">Models</button>
+      <button class="tab" data-tab="about">About</button>
+    </nav>
+    <div class="status"><span class="dot"></span><span id="statusText">8 depots on duty</span></div>
+  </header>
+
+  <main>
+    <section id="demo" class="panel active">
+      <div class="mapwrap">
+        <canvas id="map" aria-label="Manhattan road network map. Click to place an emergency."></canvas>
+        <div class="legend" id="legend"></div>
+        <div class="zoom">
+          <button id="zoomIn" aria-label="Zoom in">+</button>
+          <button id="zoomOut" aria-label="Zoom out">−</button>
+          <button id="resetBtn" aria-label="Reset view">⤢</button>
+        </div>
+      </div>
+
+      <aside class="float controls">
+        <div class="group">
+          <label for="placement">Depot layout</label>
+          <select id="placement"></select>
+        </div>
+        <div class="group">
+          <label for="hour">Hour of day <span id="hourLabel" class="readout">18:00</span></label>
+          <input id="hour" type="range" min="0" max="23" value="18">
+          <div class="scale"><span>00</span><span>06</span><span>12</span><span>18</span><span>23</span></div>
+        </div>
+        <div class="group">
+          <span class="label">Route by</span>
+          <div class="seg" id="mode">
+            <button data-v="ml" class="on">Travel time</button>
+            <button data-v="distance">Distance</button>
+          </div>
+        </div>
+        <div class="group">
+          <span class="label">Search with</span>
+          <div class="seg" id="algo">
+            <button data-v="astar" class="on">A*</button>
+            <button data-v="dijkstra">Dijkstra</button>
+          </div>
+        </div>
+        <div class="group">
+          <span class="label">Show on map</span>
+          <div class="seg" id="layer">
+            <button data-v="coverage" class="on">Coverage</button>
+            <button data-v="roads">Demand</button>
+            <button data-v="explored">Search</button>
+          </div>
+        </div>
+        <button id="randomBtn" class="primary">Simulate a call</button>
+        <p class="hint">Or click anywhere on the map. Scroll to zoom, drag to pan.</p>
+        <div class="stats" id="coverageStats"></div>
+      </aside>
+
+      <aside class="float dispatch" id="dispatch">
+        <h2>Waiting for a call</h2>
+        <p class="muted">Place an emergency on the map. RapidRoute picks the fastest depot, plots the route, and shows how Dijkstra and A* searched the city.</p>
+      </aside>
+    </section>
+
+    <section id="results" class="panel page">
+      <div class="hero-row" id="kpis"></div>
+      <div class="sheet">
+        <h2>Four ways to run the same fleet</h2>
+        <p class="muted" id="scenarioNote"></p>
+        <div class="tablewrap" id="scenarioTable"></div>
+      </div>
+      <div class="gallery">
+        <figure><img src="../reports/figures/scenarios_comparison.png" alt="Scenario comparison bars"><figcaption>Mean, P90 and share within 8 minutes for each scenario.</figcaption></figure>
+        <figure><img src="../reports/figures/scenarios_cdf.png" alt="Response time CDF"><figcaption>Share of calls reached within t minutes.</figcaption></figure>
+        <figure><img src="../reports/figures/scenarios_ablation.png" alt="Placement and routing ablation"><figcaption>Which part of the system produces the gain.</figcaption></figure>
+        <figure><img src="../reports/figures/scenarios_fleet_sensitivity.png" alt="Fleet sensitivity"><figcaption>The gain holds across fleet sizes and grows when the fleet is stretched.</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="models" class="panel page">
+      <div id="modelSections"></div>
+    </section>
+
+    <section id="about" class="panel page">
+      <div class="sheet prose" id="aboutCard"></div>
+    </section>
+  </main>
+
+  <div class="tooltip" id="tip"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

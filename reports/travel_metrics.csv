@@ -1,0 +1,5 @@
+,MAE_min,MedAE_min,MAPE_%
+Zone × hour median (baseline),4.596,2.817,54.096
+Decision tree,4.254,2.652,50.95
+Neural network (MLP),4.254,2.7,52.382
+Gradient boosting,4.207,2.625,50.806

@@ -1,0 +1,6 @@
+model,accuracy,precision,recall,F1,ROC_AUC
+Naïve Bayes,0.671,0.7652,0.6191,0.6845,0.7465
+Decision tree,0.6795,0.7835,0.6135,0.6881,0.7572
+SVM (RBF),0.6749,0.7874,0.5973,0.6793,0.7449
+Gradient boosting (ref.),0.6946,0.7846,0.6481,0.7098,0.7714
+Majority class (baseline),0.5763,0.5763,1.0,0.7312,0.5

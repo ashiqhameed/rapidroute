@@ -1,0 +1,5 @@
+hour,mode,pct_routes_different,mean_extra_s,p90_extra_s,max_extra_s
+4,distance,73.75,257.62,785.14,1708.32
+4,freeflow,14.75,1.03,1.71,54.04
+18,distance,73.75,325.77,1062.61,2155.74
+18,freeflow,25.25,4.54,13.68,144.59
