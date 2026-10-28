@@ -223,7 +223,6 @@ Target: whether the response will take longer than 8 minutes, predicted from inf
 rapidroute/
 ├── README.md
 ├── RapidRoute.html
-├── RapidRoute_Manual.docx
 ├── requirements.txt
 ├── config.yaml
 ├── run_all.py
