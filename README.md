@@ -2,6 +2,7 @@
 ### ML-driven ambulance placement and shortest-path dispatch
 
 > **Author:** Ashiq Hameed
+> **Live demo:** https://ashiqhameed.github.io/rapidroute/RapidRoute.html
 > **Stack:** Python · scikit-learn · NetworkX · OSMnx · JavaScript
 > **Focus:** Applying shortest-path algorithms (Dijkstra, A\*) to emergency response, with machine learning driving placement, dispatch and edge weights.
 
