@@ -524,7 +524,10 @@ function nearestNode(px, py) {
   return best;
 }
 
+let userView = false;
+
 function zoomAt(mx, my, f) {
+  userView = true;
   state.view.x = mx - (mx - state.view.x) * f;
   state.view.y = my - (my - state.view.y) * f;
   state.view.s *= f;
@@ -536,7 +539,7 @@ canvas.addEventListener("mousedown", (e) => { drag = { x: e.clientX, y: e.client
 window.addEventListener("mousemove", (e) => {
   if (drag) {
     const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-    if (Math.abs(dx) + Math.abs(dy) > 4) { drag.moved = true; canvas.classList.add("grabbing"); }
+    if (Math.abs(dx) + Math.abs(dy) > 4) { drag.moved = true; userView = true; canvas.classList.add("grabbing"); }
     state.view.x = drag.vx + dx; state.view.y = drag.vy + dy;
     draw();
     return;
@@ -611,11 +614,11 @@ function initControls() {
   const centre = () => { const r = canvas.getBoundingClientRect(); return [r.width / 2, r.height / 2]; };
   document.getElementById("zoomIn").addEventListener("click", () => zoomAt(...centre(), 1.4));
   document.getElementById("zoomOut").addEventListener("click", () => zoomAt(...centre(), 1 / 1.4));
-  document.getElementById("resetBtn").addEventListener("click", () => { fitView(); draw(); });
+  document.getElementById("resetBtn").addEventListener("click", () => { userView = false; fitView(); draw(); });
   document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach((x) => x.classList.toggle("active", x === t));
     document.querySelectorAll(".panel").forEach((p) => p.classList.toggle("active", p.id === t.dataset.tab));
-    if (t.dataset.tab === "demo") { resize(); draw(); }
+    if (t.dataset.tab === "demo") { resize(); if (!userView) fitView(); draw(); }
   }));
 }
 
@@ -761,7 +764,7 @@ function init() {
   resize();
   fitView();
   refresh();
-  window.addEventListener("resize", () => { resize(); draw(); });
+  window.addEventListener("resize", () => { resize(); if (!userView) fitView(); draw(); });
   if (document.fonts) document.fonts.ready.then(draw);
 }
 
